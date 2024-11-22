@@ -1,0 +1,13 @@
+[project]
+name = "stormlit"
+dependencies = [
+    "streamlit",
+    "google.cloud",
+    "numpy",
+    "pandas",
+    "plotly",
+]
+
+
+
+# install with pip install .
