@@ -57,6 +57,7 @@ events_by_year = filtered_df.groupby('event_year')['total_event_count'].sum().re
 events_by_year_fig = px.line(events_by_year, x='event_year', y='total_event_count', 
                              title='Severe Storm Events by Year', 
                              labels={'event_year': '', 'total_event_count': 'Total Events'})
+events_by_year_fig.update_yaxes(rangemode='tozero')
 st.plotly_chart(events_by_year_fig)
 
 # deaths by year chart
@@ -86,6 +87,7 @@ filtered_df = filtered_df[filtered_df['event_year'] == str(selected_year)]
 events_by_year = filtered_df.groupby('event_month')['total_event_count'].sum().reset_index()
 monthly_events_fig = px.line(events_by_year, x='event_month', y='total_event_count', title=f'Severe Storm Events by Month in {selected_year}', text='total_event_count', labels={'event_month': '', 'total_event_count': 'Total Events'})
 monthly_events_fig.update_traces(textposition='top center')
+# monthly_events_fig.update_xaxes(,tickangle=45)
 st.plotly_chart(monthly_events_fig)
 
 
