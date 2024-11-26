@@ -5,3 +5,4 @@ google-cloud
 numpy
 pandas
 plotly
+db_dtypes
