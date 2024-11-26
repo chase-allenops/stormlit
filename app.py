@@ -3,9 +3,14 @@ from google.cloud import bigquery
 from google.oauth2 import service_account
 import pandas as pd
 import numpy as np 
+import toml
 import plotly.express as px
 
-gcp_credentials = service_account.Credentials.from_service_account_file("stormlit-sa.json")
+# Access environment variables
+# Read the secrets.toml file
+gcp_credentials = st.secrets["google_cloud"]
+
+gcp_credentials = service_account.Credentials.from_service_account_info(gcp_credentials)
 
 st.set_page_config(page_title='Severe Storm Events in the US', 
                    layout='wide',
